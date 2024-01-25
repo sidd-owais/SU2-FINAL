@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "meson-build-debug",
+      "command": "python",
+      "args": [
+        "meson.py",
+        "debug_build",
+        "--buildtype=debug"
+      ]
+    },
+    {
+      "label": "ninja-build-debug",
+      "command": "ninja",
+      "args": [
+        "-C",
+        "debug_build",
+        "install"
+      ],
+      "dependsOn": [
+        "meson-build-debug"
+      ]
+    },
+    {
+      "label": "build-debug",
+      "dependsOn": [
+        "ninja-build-debug"
+      ]
+    },
+    {
+      "label": "meson-build",
+      "command": "python",
+      "args": [
+        "meson.py",
+        "build",
+        "--optimization=3"
+      ]
+    },
+    {
+      "label": "ninja-build",
+      "command": "ninja",
+      "args": [
+        "-C",
+        "build",
+        "install"
+      ],
+      "dependsOn": [
+        "meson-build"
+      ]
+    },
+    {
+      "label": "build",
+      "dependsOn": [
+        "ninja-build"
+      ]
+    },
+    {
+      "label": "build-and-run",
+      "dependsOn": [
+        "build"
+      ],
+      "command": [
+        "${workspaceFolder}/build/SU2_CFD/src/SU2_CFD.exe"
+      ],
+      "args": [
+        "inv_wedge_HLLC.cfg"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/QuickStart"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

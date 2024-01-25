@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+
+    {
+      "name": "g++ - Build and debug active file",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/debug_build/SU2_CFD/src/SU2_CFD.exe",
+      "args": ["inv_NACA0012.cfg"],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/QuickStart",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "preLaunchTask": "build-debug"
+    }
+  ]
+}
