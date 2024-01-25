@@ -98,6 +98,9 @@ ninja
 # ignore .zip
 *.zip
 
+#ignore .exe
+*.exe
+
 
 # Ignore SU2 pre-configuration timestamp created by preconfigure.py
 su2preconfig.timestamp
